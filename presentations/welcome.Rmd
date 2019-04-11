@@ -1,0 +1,17 @@
+---
+title: "Moving past p-values"
+author: "Stats for data science"
+date: "USCOTS May 14,  2019"
+output: rmdformats::material
+---
+
+
+
+```{r setup_welcom, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r child = "Workshop_outline.Rmd"}
+```
+

@@ -1,9 +1,93 @@
-name: "Moving past p-values"
+name: "USCOTS p-values"
 output.dir: "docs"
 navbar:
-  title: "USCOTS 2019 Workshop"
-  left:
+  title: "Moving past p-values: Stats for data science"
+  right:
     - text: "Home"
       href: index.html
-    - text: "About"
-      href: about.html
+    - text: "Agenda"
+      href: Agenda.html
+    - text: "Slides"
+      href: slides.html
+    - text: "Little Apps"
+      menu:
+        - text: Point plots
+          href: https://dtkaplan.shinyapps.io/LA_point_plot
+        - text: Center and spread
+          href: https://dtkaplan.shinyapps.io/LA_center_spread
+        - text: Rare and common
+          href: https://dtkaplan.shinyapps.io/LA_rare_and_common
+        - text: t-test
+          href: https://dtkaplan.shinyapps.io/LA_t_test
+        - text: Proportions
+          href: https://dtkaplan.shinyapps.io/LA_proportions
+        - text: Linear regression
+          href: https://dtkaplan.shinyapps.io/LA_linear_regression/
+        - text: Sum of square errors
+          href: https://dtkaplan.shinyapps.io/LA_sum_of_square_errors
+        - text: Bootstrapping
+          href: https://dtkaplan.shinyapps.io/LA_bootstrap
+    - text: "SDS  Book"
+      menu:
+        - text: "Preface"
+          href: https://dtkaplan.github.io/SDS-book/preface.html
+        - text: "1. Statistics and variability"
+          href: https://dtkaplan.github.io/SDS-book/what-is-stats.html
+        - text: "2. What is data?"
+          href: https://dtkaplan.github.io/SDS-book/tidy-data.html
+        - text: "3. Data graphics"
+          href: https://dtkaplan.github.io/SDS-book/data-graphics.html
+        - text: "4. Summary and prediction"
+          href: https://dtkaplan.github.io/SDS-book/summarizing-data.html
+        - text: "5. Stratification"
+          href: https://dtkaplan.github.io/SDS-book/stratification.html
+        - text: "6. Purpose, knowledge, and judgement"
+          href: https://dtkaplan.github.io/SDS-book/judgement.html
+        - text: "7. Bayes rule"
+          href: https://dtkaplan.github.io/SDS-book/bayes.html
+        - text: "8. Prediction functions"
+          href: https://dtkaplan.shinyapps.io/R_basics_prediction_functions/
+        - text: "9. Models that learn"
+          href: https://dtkaplan.github.io/SDS-book/tree-models.html
+        - text: "10. Causal networks"
+          href: metadata.html
+        - text: "11. Simulation"
+          href: https://dtkaplan.github.io/SDS-book/simulation.html
+        - text: "12. Model performance"
+          href: https://dtkaplan.github.io/SDS-book/mean-square-error.html
+        - text: "13. Classification error"
+          href: https://dtkaplan.github.io/SDS-book/classification-error.html
+        - text: "14. Partitioning variance"
+          href: https://dtkaplan.github.io/SDS-book/partitioning-variance.html
+        - text: "15. Effect size"
+          href: https://dtkaplan.github.io/SDS-book/effect-size.html
+        - text: "16. Covariates"
+          href: https://dtkaplan.github.io/SDS-book/covariates.html
+        - text: "17. False discovery"
+          href: https://dtkaplan.github.io/SDS-book/false-discovery.html
+        - text: "18. Communicating about uncertainty"
+          href:
+        - text: "19. Samples and sampling"
+          href: https://dtkaplan.github.io/SDS-book/samples-and-sampling.html
+        - text: "20. Sampling variation"
+          href: https://dtkaplan.github.io/SDS-book/sampling-variation.html
+        - text: "21. Confidence intervals with resampling"
+          href: https://dtkaplan.github.io/SDS-book/resampling.html
+        - text: "22. Small data"
+          href: https://dtkaplan.github.io/SDS-book/small_data.html
+        - text: "23. Loss functions"
+        - text: "24. Adjustment"
+        - text: "25. Blame"
+    - text: "Citations"
+      href: citations.html
+    - text: "Publish"
+      menu:
+        - text: "Publishing Articles"
+          href: publish_article.html
+        - text: "Publishing a Website"
+          href: publish_website.html
+        - text: "---"
+        - text: "Article Metadata"
+          href: metadata.html
+    - icon: fab fa-github
+      href: https://github.com/rstudio/distill

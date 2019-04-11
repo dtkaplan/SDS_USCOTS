@@ -1,0 +1,14 @@
+---
+title: "Slides from presentations"
+author: "D. Kaplan"
+date: "4/10/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. [Welcome!](welcome.html)
+#. Problems with p-values
+#. [Problems with Stat 101](problems.html)

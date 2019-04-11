@@ -1,0 +1,42 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Tuesday Agenda
+
+- The problem with p-values
+- Other problems in Stat 101
+    - discussion: What don't we like. [document](https://docs.google.com/document/d/1FCIgrFNXQ_q4p-WRXtLtNY1HdH5i24uQS9frDBc3z7g/edit?usp=sharing)
+    - the problem with means [slides]()
+        - Lesson: WHICH APP FOR MAKING  SUMMARY INTERVALS?
+    - the problems with standard deviations (including defining interval length as average of point-to-point interval)
+        - Using summary interval length instead.
+- What do data scientists do?
+    - prediction
+    - causation 
+    - exploration
+- Computation: two paradigms
+    - R
+    - Little Apps
+- Stats for data science
+- A unifying paradigm: inference with model values
+
+# Wednesday Agenda
+
+- The problem with means
+- Modeling at the core
+- Effect sizes
+- DAGs
+- Bayes
+
+# Thursday Agenda
+
+What we'll do on Thursday
+
+
+
+
