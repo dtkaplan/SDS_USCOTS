@@ -1,0 +1,13 @@
+# Moving past p-values: stats for data science
+
+A pre-conference USCOTS workshop
+
+May 14 through May 16, 2019
+
+**Description**: Let's start from scratch in introducing statistics, putting the needs of today's data scientists at the heart of the course and using inferential techniques suited to making decisions with data. We'll work with the upcoming [*Stats for Data Science*](dtkaplan.github.io/SDS) textbook. You'll see a new way of organizing statistical concepts, building on the statistical foundations of machine learning and inferential paradigms of causal reasoning and of comparing models (rather than positing a Null that nobody believes). Once you've put p in its place, you'll be able to engage the GAISE recommendation to help your students "explore relationships among many variables." We'll use R as a computational engine, but it's the statistical concepts that will star.
+
+Conference times:
+
+- Tuesday May 14, 1:00 pm – 4:30 pm
+- Wednesday May 15, 8:30 am – 12:00 pm and 1:00 pm – 4:30 pm
+- Thursday May 16, 8:30 am – 12:00 pm

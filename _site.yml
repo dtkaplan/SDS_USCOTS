@@ -1,0 +1,9 @@
+name: "Moving past p-values"
+output.dir: "docs"
+navbar:
+  title: "USCOTS 2019 Workshop"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
