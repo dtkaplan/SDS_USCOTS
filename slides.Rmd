@@ -9,6 +9,6 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-1. [Welcome!](welcome.html)
-#. Problems with p-values
+#. [Problems with p-values](presentations/problems-with-p-values.html)
+#. [Cars and Stats](presentations/Cars-and-stats/cars_and_stats.html)
 #. [Problems with Stat 101](problems.html)

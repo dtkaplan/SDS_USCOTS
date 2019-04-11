@@ -1,0 +1,41 @@
+---
+title: "Problems with p-values"
+author: "Stats for data science"
+date: "USCOTS May 14, 2019"
+output: rmdformats::material
+---
+
+```{r setup_welcom, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# A p-value quiz
+
+**ASA statement**: 
+
+> *Underpinning many published scientific conclusions is the concept of “statistical significance,” typically assessed with an index called the p-value. While the p-value can be a useful statistical measure, it is commonly misused and misinterpreted.* -- [The ASA’s Statement on p-Values: Context, Process, and Purpose](http://dx.doi.org/10.1080/00031305.2016.1154108)
+
+**Agree or disagree?**
+
+1. P-values can indicate how incompatible the data are with a **specified statistical model**.
+
+2. P-values do not measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone.
+
+3. A p-value, or statistical significance, does not measure the size of an effect or the importance of a result.
+
+4. By itself, a p-value does not provide a good measure of evidence regarding a model or hypothesis.
+
+[Answers here](https://amstat.tandfonline.com/doi/pdf/10.1080/00031305.2016.1154108?needAccess=true)
+
+# Student misconceptions
+
+Students ... and many professionals
+
+1. p-value is the probability that the null hypothesis is true
+2. possible outcome: accept the null hypothesis
+
+# Vague alternatives
+
+We use the anything-but alternative hypothesis.
+
+Can't address power
