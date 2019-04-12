@@ -8,7 +8,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Tuesday Agenda
 
-- The problem with p-values
+- Welcome and [introductions](https://docs.google.com/document/d/1K4MdUToFKqQ2TmZB6JPlNt6_6Uj3CnTA70769J4tNVY/edit?usp=sharing)
+- The [problem with p-values](presentations/problems-with-p-values.html)
+- Where statistics and data science fail to connect.
 - Other problems in Stat 101
     - discussion: What don't we like. [document](https://docs.google.com/document/d/1FCIgrFNXQ_q4p-WRXtLtNY1HdH5i24uQS9frDBc3z7g/edit?usp=sharing)
     - the problem with means [slides]()

@@ -1,0 +1,100 @@
+---
+title: "Problems with<br>Stat 101"
+author: "Stats for data science"
+date: "USCOTS May 14, 2019"
+output: rmdformats::material
+---
+
+```{r setup_welcom, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(SDSdata)
+library(mosaic)
+```
+
+
+
+# USCOTS Themes
+
+- 2005 Building Connections for Undergraduate Statistics Teaching
+- 2007 Statistics Teaching to the Next Level
+- 2009 Letting Go to Grow
+- 2011 The Next Big Thing
+- 2013 Making Change Happen
+- 2015 Making Connections
+- 2017 Show Me the Data
+- 2019 Evaluating Evidence
+
+This year's conference theme is Evaluating Evidence. Inspired by recent efforts of the American Statistical Association to educate researchers, decision-makers, and the public about sound statistical practice for drawing inferences from data in the twenty-first century, USCOTS will aim to help statistics teachers to implement modern approaches for conducting and teaching statistical inference. These recent ASA efforts include:
+
+* [Official statement on p-values](https://amstat.tandfonline.com/doi/abs/10.1080/00031305.2016.1154108#.W9NHwJNKiM-0)  that has received more than 250,000 views, 
+* [Symposium on statistical inference](https://ww2.amstat.org/meetings/ssi/2017/) held in Bethesda in October 2017,
+* [Special issue of *The American Statistician*](https://www.amstat.org/ASA/Publications/Q-and-As/TAS-Special-Issue-Call-for-Papers.aspx) on "statistical inference for the 21st century"
+
+This conference theme will embrace all aspects of evaluating evidence, including but not limited to helping students to:
+
+* Understand the reasoning process of statistical inference,
+* Recognize appropriate interpretations and limitations of statistical inference,
+* Design studies to facilitate evaluating evidence,
+* Conduct research in a reproducible manner,
+* Consider alternatives to traditional methods for conducting inference, and
+* Reflect on the role of inference in the context of big data and data science.
+
+# Center
+
+We push mean, "central tendency", median very hard. 
+
+* "The most representative single value."
+
+But why do we need to use a single value to represent a distribution? Isn't an interval more informative? And don't we want our students to learn to deal with intervals?
+
+Use *summary intervals* e.g.  at 95%
+
+# Standard deviation
+
+* Normal distibution is over-emphasized. 
+* Archaic name, archaic concepts: "deviation," "normal," "l'homme moyen," "error"
+* Standard formula emphasizes distance from mean, not between individuals.
+* Hard to eyeball from data, impossible to eyeball from data frame.
+
+# No covariates
+
+# Focus on small n
+
+t distribution. With 
+
+```{r echo = FALSE}
+Points <- data.frame(df = 5:100) %>%
+  mutate(t_star = qt(0.975, df))
+gf_point(t_star ~ df, data = Points)
+```
+
+* Data science 
+
+
+# False precision
+
+How precise an estimate do we need? How much precision is needed in a summary interval, a coverage interval? 5%? 10%? So 2.2 is no different from 1.96.
+
+Show some tables from Triola
+
+# How big? 
+
+> Examples of quantities to which dimensions are regularly assigned are length, time, and speed, which are measured in dimensional units, such as metre, second and metre per second. This is considered *to aid intuitive understanding*. However, especially in mathematical physics, it is often more convenient to drop the assignment of explicit dimensions and express the quantities without dimensions, e.g., addressing the speed of light simply by the dimensionless number 1.* -- [Wikipedia](https://en.wikipedia.org/wiki/Dimensionless_quantity)
+
+- t
+- F
+- $\chi^2$
+- p-value
+
+- r at least relates quantities with dimension: 1 sd of the explanatory var is associated with r sd of the response var.
+
+# Unnecessary distinctions
+
+Breaks up closely related subjects into different formalisms: ∆p, ∆m, slope
+
+Let's connect these more tightly.
+
+# Reasoning process of statistical inference
+
+This is one of the themes of USCOTS 2019
+Show some formulas from Triola

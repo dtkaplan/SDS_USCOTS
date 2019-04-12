@@ -39,3 +39,31 @@ Students ... and many professionals
 We use the anything-but alternative hypothesis.
 
 Can't address power
+
+# Technical proposals
+
+Special issue of *The American Statistician* Statistical Inference in the 21st Century: A World Beyond p < 0.05, (2019)*73*(1:supplment)
+
+> *We propose that in research articles all use of the phrase "statistically significant" and closely related terms ("nonsignificant," "significant at p = 0.xxx," "marginally significant," etc.) be disallowed on the solid grounds long existing in the literature. Just present the p-values without labeling or categorizing them.* -- [Hurlbert, Levine & Utts (2019)](https://doi.org/10.1080/00031305.2018.1543616) 
+
+> Introduce the ideas of multiplicity of tests and p-hacking in the introductory course. -- [Steel, Liermann, & Guttor (2019)](https://www.tandfonline.com/doi/full/10.1080/00031305.2018.1505657)
+
+<aside>Problem: The introductory course is already so full of cautions -- causation, lurking variables, "assumptions" -- that we foster scepticism about the whole field.</aside>
+
+> *[Translate] the observed P-value p into the Shannon information (S-value or surprisal) $–\mbox{log}_2(p)$.* -- [Greenland (2019)](https://doi.org/10.1080/00031305.2018.1529625)
+
+> *If stakeholders realized that instead of simplistic yes/no judgments and mysterious p-values scientists could speak to them in the simple language of effect size and uncertainty, they would rightfully demand that all results be presented this way.* -- [Calin-Jageman & Cumming (2019)](https://doi.org/10.1080/00031305.2018.1518266) 
+
+> *[Interpret] p-values in light of their corresponding “Bayes factor bound,” which is the largest odds in favor of the alternative hypothesis relative to the null hypothesis that is consistent with the observed data. The Bayes factor bound generally indicates that a given p-value provides weaker evidence against the null hypothesis than typically assumed.* -- [Benjamin & Berger (2019)](https://doi.org/10.1080/00031305.2018.1543135)
+
+> *[T]he usual paradigms' focus on *learning the true model and parameters* can distract the analyst from another important task: discovering whether there are many sets of models and parameters that describe the data reasonably well. When we discover many good models we can see in what ways they agree. Points of agreement give us more confidence in our inferences, but points of disagreement give us less. -- [Lavine (2019)](https://amstat.tandfonline.com/doi/full/10.1080/00031305.2018.1459317#.XK99T5NKjOR)
+
+# Change standards for research
+
+> *[W]e propose that the p-value be demoted from its threshold screening role and instead, treated continuously, be considered along with currently subordinate factors (e.g., related prior evidence, plausibility of mechanism, study design and data quality, real world costs and benefits, novelty of finding, and other factors that vary by research domain) as just one among many pieces of evidence. -- [McShane, Gal, Gelman, Robert, Tackett (2019)](https://doi.org/10.1080/00031305.2018.1527253)
+
+> *Replicating and predicting findings in new data and new settings is a stronger way of validating claims than blessing results from an isolated study with statistical inferences.* -- [Tong (2019)](https://doi.org/10.1080/00031305.2018.1518264)
+
+> 10 principles of Guinnessometrics. *[O]ne cannot judge the “significance” of results—or decide a course of business action—without, in effect, employing some scale of human values capable of balancing the utility of expected gains against the disutility of losses.*  -- [Ziliak (2019)](https://doi.org/10.1080/00031305.2018.1514325)
+
+<aside>This is a rich collection of principles to support decision making. It fundamentally requires value judgements (e.g. loss functions) and deep consideration of the genuine purpose of the work.</aside>

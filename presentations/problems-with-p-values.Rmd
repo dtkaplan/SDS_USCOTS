@@ -1,5 +1,5 @@
 ---
-title: "Problems with p-values"
+title: "The problems <br>with p-values"
 author: "Stats for data science"
 date: "USCOTS May 14, 2019"
 output: rmdformats::material
