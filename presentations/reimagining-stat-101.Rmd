@@ -1,0 +1,56 @@
+---
+title: "A Modest Proposal"
+author: "Stats for data science"
+date: "USCOTS May 14, 2019"
+output: rmdformats::material
+---
+
+# Imagine Intro Stat 
+
+Imagine there's no *center*    
+- It's easy if you try.    
+- No Null below us    
+- Models explaining why    
+
+Imagine deviation     
+- Cast away for good (ah ah ah)      
+
+Imagine diverse values      
+- The math not hard to do      
+- Difference not deviation      
+- And forget error, too      
+
+Imagine all the models      
+- Living life in peace      
+
+You can call that data science     
+- But I'm not the only one      
+- I hope someday you'll join us        
+- And statistics will have won       
+
+Imagine there's no normal       
+- I wonder if you can      
+- No need for spread or center        
+- Just predict what you can        
+
+Imagine all the data      
+- Training models galore       
+
+You can call that data science         
+- But I'm not the only one         
+- I hope someday you'll join us        
+- And statistics will have won         
+
+
+# Re-imagining intro inference
+
+Why we might want to do this ....
+
+```{r echo = FALSE, child = "prediction-not-typical.Rmd"}
+```
+
+```{r echo = FALSE, child = "mean-and-deviation.Rmd"}
+```
+
+```{r echo = FALSE, child = "classical-inference.Rmd"}
+```

@@ -1,0 +1,143 @@
+---
+title: "Classic Inference"
+author: "Stats for data science"
+date: "USCOTS May 14, 2019"
+output: rmdformats::material
+---
+
+```{r setup_classic, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(SDSdata)
+library(mosaic)
+library(mosaicCore)
+```
+
+# CIs and p-values
+
+Much of the inference part of conventional intro stats is about computing confidence intervals and p-values in a variety of settings:
+
+- difference of means
+- difference of proportions
+- slope of regression line
+
+Formulas from Triola
+
+# No statistics were harmed in the filming of this documentary
+
+In the following, spread is measured using the length of the 85% summary interval. 
+
+You can still do all this by using the standard deviation instead.
+
+# The procedure
+
+1. Plot out data, draw in model.
+2. From data and model, find R and sample size n. The picture will tell you R.
+3. Measure effect size, e.g. difference in means or slope of regression line. Call it $\Delta$.
+4. Calculate $F = n-2 \frac{R^2}{1-R^2}$.
+5. 95% confidence interval on $\Delta$ is $\Delta \pm \sqrt{4/F}$.
+6. "Significance", but let's call it ... ?
+    - $F = 4$ -- one star (corresponds to about 0.05)
+    - $F = 7$ -- two stars (corresponds to about 0.01)
+    - $F = 12$ -- three stars (corresponds to about 0.001)
+    
+# The F table
+
+```{r echo = FALSE}
+Ftable <- data.frame(df = 3:100) %>%
+  mutate(five = qf(.95, 1, df), 
+         one = qf(.99, 1,  df), 
+         oh_one = qf(.999, 1, df))
+gf_ribbon(0 + five ~ df, data = Ftable, fill = "red", alpha = 0.2) %>%
+  gf_ribbon(five + pmin(15, one) ~ df, fill = rgb(.8, .49, .19, .7)) %>%
+  gf_ribbon(pmin(15,one) + pmin(15,oh_one) ~ df, fill  = rgb(.52, .59, .6, .7))  %>%
+  gf_ribbon(pmin(15,oh_one) + 15 ~ df, fill  = rgb(.83, .69, .22, 0.7)) %>%
+  gf_lims(y = c(0, 15), x = c(1, 100)) %>%
+  gf_labs(title = "Olympic shading for significance", y = "F", x = "n - 1") %>%
+  gf_theme(theme_minimal())
+```
+
+# Difference of means
+
+
+```{r echo = FALSE}
+This_data <- KidsFeet %>% left_join(df_stats(width ~ sex, data = KidsFeet, mean))
+P <- gf_jitter(width ~ sex, data = This_data, width = 0.1) %>%
+  gf_errorbar(mean_width + mean_width ~ sex, data = This_data, width = .25) %>%
+  gf_jitter(width ~ 1.7, width = .05, height = 0, alpha = .25) %>%
+  gf_jitter(mean_width~ 1.3, width = 0.1, height = 0, alpha = 0.25, color = "blue")
+P %>% 
+  gf_labs(y = "Foot width (cm)", title = "Raw and model values")
+```
+
+```{r echo = FALSE}
+Interval1 <- df_stats(mean_width ~ 1, data = This_data, mean = mean, sd = sd) %>% mutate(lower = mean -  0.8 * sd, upper = mean + 0.8 *sd)
+Interval2 <- df_stats(width ~ 1, data = This_data, coverage(0.85))
+P %>%
+  gf_errorbar(lower + upper ~ 1.3, data = Interval1, color = "blue",
+              width = 0.2) %>%
+  gf_errorbar(lower + upper ~ 1.7, data = Interval2, width = 0.2) %>%
+  gf_labs(y = "Foot width (cm)", title = "Raw interval and model-value interval")
+```
+
+The ratio of the intervals is $R \approx 0.25$ (and $n = 39)$.
+
+- **Difference** between the means: read it off the graph: ∆.
+
+- **CI** on difference between means: ∆ (1 ± $\sqrt{\frac{1-R^2}{n-2}})$
+
+- "**Significance**" is $(n-2) \frac{R^2}{1-R^2}$
+    - One star when 4, two stars when 7, three stars when 12.
+
+# Regression slope
+
+```{r echo = FALSE}
+This_data <- KidsFeet %>% 
+  mutate(mod_val = predict(lm(width ~ length, data = This_data)))
+P <- gf_jitter(width ~ length, data = This_data, height = 0.0, width = 0) %>%
+  gf_lm() %>%
+  gf_jitter(width ~ 29, width = .1, height = 0,  alpha = .25) %>%
+  gf_jitter(mod_val ~ 28, width = .1, height = 0, alpha = 0.25, color = "blue") %>%
+  gf_point(mod_val~ length, width = 0.1, height = 0, alpha = 0.25, color = "blue")
+P %>% 
+  gf_labs(y = "Foot width (cm)", title = "Raw and model values")
+```
+
+
+
+```{r echo = FALSE}
+Interval1 <- df_stats(mod_val ~ 1, data = This_data, coverage(.85))
+Interval2 <- df_stats(width ~ 1, data = This_data, coverage(0.85))
+Interval3 <- df_stats(length ~ 1, data = This_data, coverage(0.85)) %>%
+  mutate(y = 8)
+P %>%
+  gf_errorbarh(y ~ lower + upper, data = Interval3, inherit = FALSE,
+               width = 0.2) %>%
+  gf_errorbar(lower + upper ~ 28, data = Interval1, color = "blue",
+              width = 0.2) %>%
+  gf_errorbar(lower + upper ~ 29, data = Interval2, width = 0.2) %>%
+  gf_labs(y = "Foot width (cm)", title = "Raw interval and model-value interval")
+```
+
+
+The ratio of the vertical intervals is about $R \approx 0.65$ (and $n = 39$).
+
+- **Slope** is ratio of rise interval over run interval. Call it ∆.
+
+- **CI** on slope: ∆ (1 ± $\sqrt{\frac{1-R^2}{n-2}})$
+
+- "**Significance**" is $F = (n-2)\frac{R^2}{1-R^2}$
+    - One star when 4, two stars when 7, three stars when 12.
+    
+# Difference in proportions
+
+Fill in an example, say, domhand versus sex
+
+# Slope of proportion
+
+
+Fill in an example, say sex versus width.
+
+# Multiple regression
+
+
+

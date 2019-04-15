@@ -11,4 +11,5 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #. [Problems with p-values](presentations/problems-with-p-values.html)
 #. [Cars and Stats](presentations/Cars-and-stats/cars_and_stats.html)
-#. [Problems with Stat 101](problems.html)
+#. [Re-imagining Stat 101](reimagining-stat-101.html)
+#. [More problems with Stat 101](problems-with-Stat-101.html)

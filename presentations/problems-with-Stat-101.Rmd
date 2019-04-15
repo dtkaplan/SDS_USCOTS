@@ -47,7 +47,7 @@ We push mean, "central tendency", median very hard.
 
 But why do we need to use a single value to represent a distribution? Isn't an interval more informative? And don't we want our students to learn to deal with intervals?
 
-Use *summary intervals* e.g.  at 95%
+Use *summary intervals* e.g.  at 85% or 95%
 
 # Standard deviation
 

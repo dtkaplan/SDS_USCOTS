@@ -1,0 +1,63 @@
+---
+title: "Prediction ~~typical~~"
+author: "Stats for data science"
+date: "USCOTS May 14, 2019"
+output: rmdformats::material
+---
+
+```{r setup_prediction, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(SDSdata)
+library(mosaic)
+```
+
+# Prediction
+
+A common task in data science is to predict. 
+
+A common task in intro stats is to describe using a "typical" or "representative" value. 
+
+The *mean* is justified as the most representative value, except when it isn't. Then we use the *median*.
+
+* A median annual family income in the US in 2017 was $61,372. [Source](https://fred.stlouisfed.org/series/MEHOINUSA646N)
+
+**Imagine that the central task in intro stats were to make a prediction**, rather than to describe what's typical.
+
+# Format?
+
+Set a proper format for a prediction
+
+In intro stats, we give students a confidence interval on the mean (but not usually the median). 
+
+* Not just a single value. 
+    - Silly to say, "I predict your family has an income of $61,372." 
+    - That prediction will (almost) always be wrong.
+    - Common sense will lead people to look for a noticeable difference, say $5000. So round to $55 to $65K.
+* Need a format that can be *demonstrably right*, and demonstrably *wrong*.
+    - 100% is too big.
+    - 0% is too small (using the "typical")
+    - How about mean ± standard error
+        - But the standard error depends on the sample size. Paradox: the more data we have, the more often our prediction will be wrong!
+
+To think about a standard, imagine in each setting that we will have ten assays and we want to know if our prediction is right.
+    - A 95% interval? 60% of settings we will have perfect predictions for the ten assays. So hard to know if our interval was too broad.
+    - An 85% interval? In 20% of settings we will have perfect predictions, but more likely 7, 8, or 9 correct -- 75% of assays.
+    
+Another criterion for a standard: be able to eyeball the prediction interval with, say, 50 to 100 data points.
+    - 95% interval involves counting just 2 points from end: unreliable
+    - 85% involves 7 points from end: more reliable.
+
+# Group differences
+
+Prediction of adult height in US
+
+- Women 5' 1" to 5' 9".
+- Men 5' 5" to 6' 1"
+
+# Why do we use 95%?
+
+Because we confuse description of variation with statistical "significance."
+
+Let the prediction interval demonstrate the variation that's readily observable for two individuals.
+
+

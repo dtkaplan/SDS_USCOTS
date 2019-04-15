@@ -1,0 +1,58 @@
+---
+title: "Mean and standard deviation"
+author: "Stats for data science"
+date: "USCOTS May 14, 2019"
+output: rmdformats::material
+---
+
+```{r setup_mean, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(SDSdata)
+library(mosaic)
+```
+
+
+# Spread without mean
+
+First proposal: Focus on prediction, not "typical." 85% summary interval.
+
+How to define "spread" without a mean to refer it to? 
+
+- Could use length of the interval. 
+
+Second proposal: Define spread as the average difference between pairs of individuals.
+
+Formulas: 
+
+$$D_2 = \sqrt{\frac{1}{n} \frac{1}{n-1} \sum_{i=1}^n \sum_{j=1}^n (x_i - x_j)^2}$$
+
+... or ...
+
+$$D_1 = \frac{1}{n} \frac{1}{n-1} \sum_{i=1}^n \sum_{j=1}^n |x_i - x_j|$$
+
+For fun, let's see what these are for a standard normal distribution:
+
+```{r}
+n <- 1000
+x <- rnorm(n)
+vals <- outer(x, x, FUN = function(x, y) {abs(x - y)})
+sum(vals[]) / (n * (n-1))
+vals2 <- outer(x, x, FUN = function(x, y) {(x - y)^2})
+sqrt(sum(vals2[]) / (n * (n-1)))
+```
+
+For a normal distribution, 
+
+* $D_2$ is $\sqrt{2} \times$ standard deviation
+
+* $D_1$ is 20% smaller. 
+
+* Either can be used in what follows.
+
+**More fun**: The $n-1$ term, obscure in the standard deviation, arises naturally here. In summing the $n^2$ terms, there will be $n$ of them that are $x_i - x_i$ and so must always be exactly zero.
+
+# The 85% summary interval
+
+The length of the 85% summary interval is $2 D_2$.
+
+
