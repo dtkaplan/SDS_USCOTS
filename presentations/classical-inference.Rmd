@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(SDSdata)
 library(mosaic)
 library(mosaicCore)
+library(crayon)
 ```
 
 # CIs and p-values
@@ -28,6 +29,40 @@ In the following, spread is measured using the length of the 85% summary interva
 
 You can still do all this by using the standard deviation instead.
 
+# Star notation
+
+The usual notation for statistical significance is something like p < 0.04.
+
+In regression reports, statistical significance is appreviated with stars:
+
+- ★ p < .05
+- ★★ p < .01
+- ★★★ p < .001
+
+We want at the same time to be able
+
+1. To satisfy the traditionalists.
+2. To put "significance" on a scale that doesn't lead to familiar but fallacious probability interpretations, e.g. "The probability that the Null is true is 0.01."
+3. To make it clear that 0.05 is a weak standard for significance.
+4. To remind people that things other than "statistical significance" are important.
+
+My proposal: Amazon-like ratings
+
+- No stars: anecdotal, no sampling plan
+    ![](Data-Science/zero-stars.png) 
+- One star: sampling plan and p < 0.05
+    ![](Data-Science/one-stars.png) 
+- Two stars: : one star +  p < 0.01
+    ![](Data-Science/two-stars.png) 
+- Three stars: two stars + p < 0.001
+    ![](Data-Science/three-stars.png) 
+- Four stars: three stars and covariates considered
+    ![](Data-Science/four-stars.png)
+- Five stars: four stars and effect size reaches a magnitude of practical importance.
+    ![](Data-Science/five-stars.png)
+
+
+
 # The procedure
 
 1. Plot out data, draw in model.
@@ -35,26 +70,69 @@ You can still do all this by using the standard deviation instead.
 3. Measure effect size, e.g. difference in means or slope of regression line. Call it $\Delta$.
 4. Calculate $F = n-2 \frac{R^2}{1-R^2}$.
 5. 95% confidence interval on $\Delta$ is $\Delta \pm \sqrt{4/F}$.
-6. "Significance", but let's call it ... ?
+6. Old-timers call it "significance", but let's call it ... ?
     - $F = 4$ -- one star (corresponds to about 0.05)
     - $F = 7$ -- two stars (corresponds to about 0.01)
     - $F = 12$ -- three stars (corresponds to about 0.001)
     
 # The F table
 
+Add star pictures by hand. Maybe use colored fonts?
+
+Maybe blue, red, white, yellow
+
 ```{r echo = FALSE}
+bronze <- rgb(.8, .49, .20, .85)
+silver <- rgb(.52, .59, .6, .7)
+gold <- rgb(.83, .69, .22, .7)
 Ftable <- data.frame(df = 3:100) %>%
   mutate(five = qf(.95, 1, df), 
          one = qf(.99, 1,  df), 
          oh_one = qf(.999, 1, df))
-gf_ribbon(0 + five ~ df, data = Ftable, fill = "red", alpha = 0.2) %>%
-  gf_ribbon(five + pmin(15, one) ~ df, fill = rgb(.8, .49, .19, .7)) %>%
-  gf_ribbon(pmin(15,one) + pmin(15,oh_one) ~ df, fill  = rgb(.52, .59, .6, .7))  %>%
-  gf_ribbon(pmin(15,oh_one) + 15 ~ df, fill  = rgb(.83, .69, .22, 0.7)) %>%
+gf_ribbon(0 + five ~ df, data = Ftable, fill = "red", alpha = 0.5) %>%
+  gf_ribbon(five + pmin(15, one) ~ df, fill = bronze) %>%
+  gf_ribbon(pmin(15,one) + pmin(15,oh_one) ~ df, fill  = silver)  %>%
+  gf_ribbon(pmin(15,oh_one) + 15 ~ df, fill  = gold) %>%
   gf_lims(y = c(0, 15), x = c(1, 100)) %>%
   gf_labs(title = "Olympic shading for significance", y = "F", x = "n - 1") %>%
-  gf_theme(theme_minimal())
+  gf_hline(yintercept = c(4, 7, 12), alpha  = 0.5) %>%
+  gf_theme(theme_minimal()) %>%
+  gf_text(10 ~ 50, label = "**···", size = 10) %>%
+  gf_text(5~ 36, label = "*····", size = 10) %>%
+  gf_text(13.5 ~ 65, label = "***··", size = 10) %>%
+  gf_text(2 ~ 21, label = "·····", size = 10)
+
 ```
+
+å∫ç∂´ƒ©˙ˆ∆˚¬µ˜øπœ®ß†¨√∑≈¥ΩÅıÇÎ´Ï˝ÓˆÔÂ˜Ø∏Œ±—°•¶§∞·‚·°·‚·
+
+# Calculating F
+
+```{r echo = FALSE}
+top <- 1000
+Dataf <- data.frame(R = seq(0.02, .99, length = 100)) %>%
+  mutate(ratio = R^2 / (1 - R^2),
+         one = 4 / ratio,
+         two = 7 / ratio,
+         three = 12 / ratio)
+gf_line(ratio ~ R, data = Dataf) %>%
+  gf_lims(y  = c(0, 5))
+P <- gf_ribbon(2 + pmin(top,one) ~ R, data  = Dataf, fill = "red", alpha = 0.3)  %>%
+  gf_ribbon(pmax(2, pmin(top, one)) + pmax(pmin(top,two)) ~ R, fill = bronze) %>%
+   gf_ribbon(pmax(2, pmin(top,two)) + pmin(top,three) ~ R, fill  = silver)  %>%
+   gf_ribbon(pmax(2, pmin(top, three)) + top ~ R, fill  = gold) %>%
+  gf_lims(y = c(20, top), x = c(0, 1)) %>%
+  gf_refine(scale_y_log10(limits = c(2, 1000), breaks = c(2,5,10,20,50,100,200,500,1000))) %>%
+  gf_theme(theme_minimal()) %>%
+  gf_labs(title = "Stars from R and n", y = "n - 1") %>%
+  gf_text(38 ~ .43, label = "**···", size = 6) %>%
+  gf_text(8~ .62, label = "*····", size = 6) %>%
+  gf_text(200 ~ .75, label = "***··", size = 6) %>%
+  gf_text(5 ~ .25, label = "·····", size = 6)
+P
+
+```
+
 
 # Difference of means
 
