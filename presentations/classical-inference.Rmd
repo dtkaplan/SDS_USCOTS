@@ -1,5 +1,5 @@
 ---
-title: "Classic Inference"
+title: "Classical Inference"
 author: "Stats for data science"
 date: "USCOTS May 14, 2019"
 output: rmdformats::material
